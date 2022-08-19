@@ -86,17 +86,7 @@ incorrect();
 currentposition=0;
  
 }
-if(invalidcount==5)
-{
- 
-++invalidcount;
-torture1();
- 
-}
-if(invalidcount==8)
-{
-torture2();
-}
+
  
 }
 // LOOP ENDS!!!//
@@ -124,7 +114,7 @@ lcd.setCursor(13,1);
 lcd.println(" ");
 unlockbuzz();
  
-for(pos = 180; pos>=0; pos-=5) // goes from 180 degrees to 0 degrees
+for(pos = 90; pos>=0; pos-=5) // goes from 180 degrees to 0 degrees
 {
 myservo.write(pos); // tell servo to go to position in variable 'pos'
 delay(5); // waits 15ms for the servo to reach the position
@@ -138,7 +128,7 @@ counterbeep();
  
 delay(1000);
  
-for(pos = 0; pos <= 180; pos +=5) // goes from 0 degrees to 180 degrees
+for(pos = 0; pos <= 90; pos +=5) // goes from 0 degrees to 180 degrees
 { // in steps of 1 degree
 myservo.write(pos); // tell servo to go to position in variable 'pos'
 delay(15);
@@ -339,7 +329,7 @@ digitalWrite(buzz,LOW);
 lcd.clear();
 lcd.setCursor(2,0);
 lcd.print("RE-LOCKING");
-delay(500);
+delay(3000);
 lcd.setCursor(12,0);
 lcd.print(".");
 delay(500);
@@ -352,58 +342,6 @@ delay(400);
 lcd.clear();
 lcd.setCursor(4,0);
 lcd.print("LOCKED!");
-delay(440);
+delay(400);
 }
-//*********TORTURE1***********//
-void torture1()
-{
-delay(1000);
-lcd.clear();
-lcd.setCursor(2,0);
-lcd.print("WAIT FOR ");
-lcd.setCursor(5,1);
-lcd.print("15 SECONDS");
-digitalWrite(buzz, HIGH);
-delay(15000);
-digitalWrite(buzz, LOW);
-lcd.clear();
-lcd.setCursor(2,0);
-lcd.print("LOL..");
-lcd.setCursor(1,1);
-lcd.print(" HOW WAS THAT??");
-delay(3500);
-lcd.clear();
- 
-}
-//*****TORTURE2*****//
-void torture2()
-{
-delay(1000);
-lcd.setCursor(1,0);
-lcd.print(" ");
-lcd.setCursor(2,0);
-lcd.print("EAR DRUMS ARE");
-lcd.setCursor(0,1);
-lcd.print(" PRECIOUS!! ");
-delay(1500);
-lcd.clear();
-lcd.setCursor(1,0);
-lcd.print(" WAIT FOR");
-lcd.setCursor(4,1);
-lcd.print(" 1 MINUTE");
-digitalWrite(buzz, HIGH);
-delay(55000);
-counterbeep();
-lcd.clear();
-digitalWrite(buzz, LOW);
-lcd.setCursor(2,0);
-lcd.print("WANT ME TO");
-lcd.setCursor(1,1);
-lcd.print("REDICULE MORE??");
-delay(2500);
-lcd.clear();
-lcd.setCursor(2,0);
-lcd.print("Ha Ha Ha Ha");
-delay(1700);
-lcd.clear();
-}        
+        
